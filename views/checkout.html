@@ -1,22 +1,32 @@
 <form ng-controller="checkoutController" ng-submit="submitBtn()">
 
-    <div class="col-md-4 data">
-    	<h4 class="brandtext">Shipping Address</h4>
-    	<div class="gridStyle" ng-grid="gridOptions">
-    		<table>
-    			<tr ng-repeat="details in userdetails">
-    			<td>{{details.user_name}}</td>
-    			</tr>
-    		</table>
-    		
-    	</div>
+    <div class="col-md-4 data" name="checkout">
+        <h4 class="brandtext">Shipping Address</h4>
+        <div class="gridStyle" ng-grid="gridOptions">
+            
+        <address>
+           <div><strong>{{shippingDetails.user_name}}</strong></div>
+           <div>{{shippingDetails.user_phonenumber}}</div>
+           <div>{{shippingDetails.user_email}}</div>
+           <div>{{shippingDetails.user_Address}}</div>
+        </address>
+
+       <!--  <table>
+                <tr ng-repeat="details in userdetails" ng-click="userdetails(details)">
+                <td>{{details.user_name}}</td>
+                </tr>
+            </table> -->
+        
+            
+        </div>
     </div>
 
     <div class="col-md-8 data">
        <h4 class="brandtext">Paymeny Option</h4>
        <div class="radio" id="radio">
-        	<label><input type="radio" name="rdoResult" >Cash On Delivery</label>              
+            <label><input type="radio" name="rdoResult" >Cash On Delivery</label>              
        </div>
+       <button ng-click="alertMe()">submit</button>
     </div>
- 	
+    
 </form>
