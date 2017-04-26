@@ -1,7 +1,13 @@
 describe('ShoppingCart home page', function(){
 		
 	var result = element(by.binding('item_itemprice'));
-	var totalResult = element(by.binding('totalPrice'));	
+	var totalResult = element(by.binding('totalPrice'));
+	var itemname = "Adidas";
+	var price = "500";
+	var username = "test";
+	var useremail = "test@email.com";
+	var userphonenumber = 9845098450;
+	var useraddress = "Bengaluru"	
 
 	beforeEach(function(){
 		browser.get('http://localhost:3000/');
@@ -12,8 +18,6 @@ describe('ShoppingCart home page', function(){
 	});
 
 	it('should get the item price', function(){
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -22,21 +26,18 @@ describe('ShoppingCart home page', function(){
 
 	it('should display a error message when quantity is 0', function(){
 		var itemqty = 0;
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
 		element(by.model('productData.qty')).sendKeys(itemqty);
 		element(by.id('totalprice')).click();
 		console.log("should Return an error message");
+		expect(element(by.css('.message')).isDisplayed()).toBe(true);
 		browser.sleep(1000);
 	});
 
 	it('should calculate total price when quantity is 1', function(){
 		var itemqty = 1;
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -51,8 +52,6 @@ describe('ShoppingCart home page', function(){
 
 	it('should calculate total price when quantity is 2', function(){
 		var itemqty = 2;
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -67,8 +66,6 @@ describe('ShoppingCart home page', function(){
 
 	it('should calculate total price when quantity is 5', function(){
 		var itemqty = 5;
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -82,9 +79,7 @@ describe('ShoppingCart home page', function(){
 	});
 
 	it('Should display a error message if quantity is not available', function(){
-		var itemqty = 24;
-		var itemname = "Adidas";
-		var price = "500";
+		var itemqty = 34;
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -96,8 +91,6 @@ describe('ShoppingCart home page', function(){
 
 	it('should clear all the fields if CLEAR button is clicked', function(){
 		var itemqty = 5;
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -114,22 +107,7 @@ describe('ShoppingCart home page', function(){
 		browser.sleep(1000);
 	});
 
-	it('should display a error message if the quantity is 0',function(){
-		var itemqty = 0;
-		var itemname = "Adidas";
-		var price = "500";
-		element(by.model('item_ItemName')).sendKeys(itemname);
-		element(by.id('singleitem')).click();
-		expect(result.getText()).toEqual("500");
-		element(by.model('productData.qty')).sendKeys(itemqty);
-		element(by.id('totalprice')).click();
-		expect(element(by.css('.message')).isDisplayed()).toBe(true);
-		browser.sleep(1000);
-	});
-
 	it('should display available sizes for the particular brand',function(){
-		var itemname = "Adidas";
-		var price = "500";
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -137,10 +115,8 @@ describe('ShoppingCart home page', function(){
 		browser.sleep(1000);
 	});
 
-	it('should navigate to "UserDetails" when the totalprice is dispalyed', function(){
-		var itemqty = 5;
-		var itemname = "Adidas";
-		var price = "500";
+	it('should navigate to "UserDetails" only when the totalprice is dispalyed', function(){
+		var itemqty = 2;
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
 		expect(result.getText()).toEqual("500");
@@ -151,11 +127,16 @@ describe('ShoppingCart home page', function(){
 		console.log(actualResult);
 		expect(totalResult.getText()).toEqual(actualResult);
 		element(by.id('myButton')).click();
-		
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#!/userDetails');
+		element(by.model('form.user_name')).sendKeys(username);
+		element(by.model('form.user_phonenumber')).sendKeys(userphonenumber);
+		element(by.model('form.user_email')).sendKeys(useremail);
+		element(by.model('form.user_Address')).sendKeys(useraddress);
+		element(by.id('btncontinue')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#!/checkout');
+		element(by.id('btnsubmit')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#!/shippingConformation')
 		browser.sleep(1000);
 	});
 
-	// it('should display the item in the "enter brand" text field when the radio button is checked', function(){
-	// 	element(by.id('radio')).click();
-	// });
 });
