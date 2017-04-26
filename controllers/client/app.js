@@ -21,6 +21,10 @@ var app = angular.module('submitExample', ['ui.router']);
       url:'/checkout',
       templateUrl: '/views/checkout.html'
     })
+    .state('/shippingConformation',{
+      url:'/shippingConformation',
+      templateUrl:'/views/shippingConformation.html'
+    })
   });
 
 })();
