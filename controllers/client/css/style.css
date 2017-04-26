@@ -1,13 +1,25 @@
-/* CSS Style */
+/ CSS Style /
 
 button:focus {outline:0;}
 
 body{
-	  margin: 0;
+    margin: 0;
     display: flex;
     align-items: baseline;
     min-height: 100vh;
     flex-direction: column;
+}
+.home-page button {
+    background: #25729a;
+    color: white;
+    border: 1px solid #25729a;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.home-page button[disabled], html input[disabled] {
+    /*cursor: default;*/
+    cursor: not-allowed !important;
+    opacity: 0.65;
 }
 
 .main-page{
@@ -16,7 +28,7 @@ body{
 }
 
 .header-image {
-  /* Wave Color */
+  / Wave Color /
   background: #59adeb;
   background: -moz-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
   background: -webkit-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
@@ -66,7 +78,7 @@ body{
 }
 
 
-/* Buttons */
+/ Buttons /
 
 .Button {
   -webkit-appearance: none;
@@ -123,7 +135,7 @@ body{
 }
 
 
-/* Animation Wave Color */
+/ Animation Wave Color /
 
 @-webkit-keyframes waveColors {
   0% {
@@ -150,14 +162,18 @@ body{
 }
 
 
-/* End Animation Wave Color */
+/ End Animation Wave Color /
 
 .brandtext {
-  color: #287ff2;
+  /*color: #287ff2;*/
+  color: #25729a;
+}
+h4.brandtext {
+    color: #25729a;
 }
 .container .form{
-	  width: 560px;
-    height: 300px;
+    width: 560px;
+    height: 320px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
@@ -237,5 +253,60 @@ footer{
 .gridStyle {
     border: 1px solid rgb(212,212,212);
     width: 400px; 
-    height: 300px
+    height: 300px;
+    border-radius: 5px;
+}
+.shippingName {
+    color: #565656;
+    display: block;
+    border-bottom: #e6e6e6 solid 1px;
+    padding: 0 0 5px;
+    margin: 10px 20px 10px;
+    text-transform: uppercase;
+}
+.shippingDetails {
+    text-transform: uppercase;
+    /*border-bottom: #e6e6e6 solid 1px;*/
+    padding: 0 0 5px;
+    margin: 10px 20px 10px;
+}
+.gridStyle h5 {
+    color: #25729a;
+    padding: 0 0 5px;
+    margin: 10px 20px 10px;
+}
+.itemDetails {
+    padding: 0 0 5px;
+    margin: 10px 20px 10px;
+}
+.shippingconformation {
+    margin: 50px;
+    padding: 0;
+}
+.shippingconformation p {
+  color: green;
+}
+.querymessage {
+    border: 1px solid;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 5px;
+}
+.submit-checked {
+    background: #25729a;
+    color: white;
+    border: 1px solid #25729a;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.checkout-page button[disabled], html input[disabled] {
+    cursor: not-allowed !important;
+    opacity: 0.65;
+}
+.form-page button {
+    background: #25729a;
+    color: white;
+    border: 1px solid #25729a;
+    margin-top: 15px;
+    border-radius: 5px; 
 }
