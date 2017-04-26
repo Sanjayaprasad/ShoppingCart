@@ -1,14 +1,18 @@
-app.controller('checkoutController', function($scope, savedService){
+app.controller('checkoutController', function($scope, $state, savedService, productService){
   
   $scope.shippingDetails = savedService.get();
+  $scope.itemDetails = productService.get();
 
   $scope.alertMe = function(){
-          alert("Thanks for placing your order, Your order will be delivered in 3 working days..!");
+  	alert("Thanks for placing your order, Your order will be delivered in 3 working days..!");
   };
 
-  // $scope.userdetails = function(data) {
-  //   console.log(data);
-  //   $scope.form.user_name = data.user_name;
-  // };
+  $scope.submit = function(){
+  	$state.go('/shippingConformation')
+  }
+
+  $scope.submitIsDisabled = function(){
+    return !itemDetails.item_ItemName;
+  }
   
 });
