@@ -3,16 +3,12 @@ app.controller('checkoutController', function($scope, $state, savedService, prod
   $scope.shippingDetails = savedService.get();
   $scope.itemDetails = productService.get();
 
-  $scope.alertMe = function(){
-  	alert("Thanks for placing your order, Your order will be delivered in 3 working days..!");
-  };
-
   $scope.submit = function(){
   	$state.go('/shippingConformation')
   }
 
-  $scope.submitIsDisabled = function(){
-    return !itemDetails.item_ItemName;
+  $scope.isDisabled = function(){
+    return !$scope.itemDetails.item_ItemName;
   }
   
 });
