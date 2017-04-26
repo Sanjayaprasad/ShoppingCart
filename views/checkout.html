@@ -1,32 +1,31 @@
-<form ng-controller="checkoutController" ng-submit="submitBtn()">
+<form ng-controller="checkoutController" ng-submit="submitBtn()" class="checkout-page">
 
     <div class="col-md-4 data" name="checkout">
-        <h4 class="brandtext">Shipping Address</h4>
-        <div class="gridStyle" ng-grid="gridOptions">
-            
-        <address>
-           <div><strong>{{shippingDetails.user_name}}</strong></div>
-           <div>{{shippingDetails.user_phonenumber}}</div>
-           <div>{{shippingDetails.user_email}}</div>
-           <div>{{shippingDetails.user_Address}}</div>
-        </address>
-
-       <!--  <table>
-                <tr ng-repeat="details in userdetails" ng-click="userdetails(details)">
-                <td>{{details.user_name}}</td>
-                </tr>
-            </table> -->
+      <h4 class="brandtext">ORDER SUMMARY</h4>
+      <div class="gridStyle" ng-grid="gridOptions">
         
-            
-        </div>
-    </div>
+        <address>
+           <h5>Product Details</h5>
+           <div class="itemDetails">
+           <div>Item Name: <strong>{{itemDetails.item_ItemName}}</strong></div>
+           <div>Total Price: <strong>{{itemDetails.totalPrice}}</strong></div>
+           </div> 
+           
+           <h5>Delivery Address</h5>
+           <div class="shippingName"><strong>{{shippingDetails.user_name}}</strong></div>
+           <div class="shippingDetails">           
+                <div>{{shippingDetails.user_email}}</div>
+                <div>{{shippingDetails.user_Address}}</div>
+                <div>{{shippingDetails.user_phonenumber}}</div>
+           </div> 
+        </address>
+      </div>
+</div>
 
-    <div class="col-md-8 data">
-       <h4 class="brandtext">Paymeny Option</h4>
-       <div class="radio" id="radio">
-            <label><input type="radio" name="rdoResult" >Cash On Delivery</label>              
-       </div>
-       <button ng-click="alertMe()">submit</button>
-    </div>
-    
+     <div class="col-md-8 data">
+      <h4 class="brandtext">Paymeny Option</h4>
+       <input type="radio"> CashOnDelivery</input><br/>
+       <button ng-click="alertMe()" id="btnsubmit" ng-model="button" ng-disabled="isDisabled()" class="submit-checked">Submit</button>
+     </div>
+  
 </form>
