@@ -1,4 +1,3 @@
-cd ShoppingCart
 
 npm install
 
@@ -8,6 +7,6 @@ cd db
 mkdir data
 cd ..
 
-mongod -dbpath /Users/solutionsiq/Desktop/ShoppingCartApp/db/data
+mongod -dbpath /Users/solutionsiq/Desktop/ShoppingCart/db/data
 
 
