@@ -139,4 +139,15 @@ describe('ShoppingCart home page', function(){
 		browser.sleep(1000);
 	});
 
+	it('buy now button should be disabled if totalprice is equal to " "', function(){
+		var itemqty = 2;
+		element(by.model('item_ItemName')).sendKeys(itemname);
+		element(by.id('singleitem')).click();
+		expect(result.getText()).toEqual("500");
+		element(by.model('productData.qty')).sendKeys(itemqty);
+		element(by.id('myButton')).click();
+		expect(element(by.css('.home-page')).getAttribute('disabled')).toBeFalsy();
+		browser.sleep(1000);
+	});
+
 });
