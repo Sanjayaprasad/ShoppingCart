@@ -24,3 +24,8 @@ mongo < insertData.sh
 node server
 
 //open browser and run "localhost:3000" to see your app up and running
+
+//To run Protractor test
+
+cd test
+protractor conf.js
