@@ -1,8 +1,8 @@
-app.controller('checkoutController', function($scope, $state, savedService, productService){
+app.controller('checkoutController', function($scope, $state, savedService, productDetailService){
   
   $scope.cod = true;
   $scope.shippingDetails = savedService.get();
-  $scope.itemDetails = productService.get();
+  $scope.itemDetails = productDetailService.get();
 
   $scope.submit = function(){
   	$state.go('/shippingConformation')
