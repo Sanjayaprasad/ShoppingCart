@@ -1,5 +1,5 @@
 //User controller for searching the item
-app.controller('UserController', function($scope,$filter, $http, productService){
+app.controller('UserController', function($scope,$filter, $http, productDetailService){
 
   $scope.IsVisible = false;
   // API - To get all products
@@ -15,7 +15,7 @@ app.controller('UserController', function($scope,$filter, $http, productService)
       $scope.totalPrice = $scope.productData.qty * $scope.item_itemprice ;
       console.log($scope.item_itemprice);
       $scope.message = '';
-      productService.set({item_ItemName:$scope.item_ItemName, totalPrice:$scope.totalPrice});
+      productDetailService.set({item_ItemName:$scope.item_ItemName, totalPrice:$scope.totalPrice});
       return $scope.totalPrice;
     }else if($scope.productData.qty == 0){
       $scope.message = "Please check the quantity";
