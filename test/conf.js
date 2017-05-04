@@ -7,12 +7,7 @@ exports.config = {
   },
 
   onPrepare: function(){
-  	require('jasmine-reporters');
-  	jasmine.getEnv().addReporter(
-  		new jasmine.JUnitXmlReporter({
-  			consolidateAll : true,
-  			savePath: 'test',
-  			filePrefix: 'xmloutput'
-  	}));
+  	var reporters = require('jasmine-reporters');
+  	jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter("tmp", true, true, "alt-prepend-"));	
   }
 }

@@ -1,13 +1,20 @@
 <form ng-controller="UserController" ng-submit="submitBtn()" class="clearfix home-page">
 
-      <div class="col-md-4 data">
+      <!-- <div class="col-md-4 data">
         <h4 class="brandtext">Brand</h4>
         <div class="radio" id="radio" ng-repeat = "items in products" ng-click="itemlist(items)" ng-model="item_quantity">
           <label><input type="radio" name="rdoResult" >{{items.itemname}}</label>              
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-md-8 form">   
+    <div class="col-md-4 data">
+        <h4 class="brandtext">Brand</h4>
+        <div class="radio" id="radio" ng-repeat = "items in products" ng-click="itemlist(items)"    ng-model="item_quantity" ng-init="(selectedProduct.item_id == items._id) ? itemlist(items) : console.log('NoteSelected')" ng-model="rdo">
+            <label><input type="radio" ng-checked="(selectedProduct.item_id == items._id)" name="rdoResult">{{items.itemname}}</label>
+        </div>
+    </div>
+
+    <div class="col-md-8 form">   
       
         Enter Brand Name:
         <input type="text" name="item_name" ng-model="item_ItemName" ng-change="clearPrice()" autocomplete="off" />
@@ -21,7 +28,7 @@
 
         <br/><br/>
         Enter Quantity before showing total Price
-        <input type="text" name="item_qty" ng-model="productData.qty"/>
+        <input type="text" name="item_qty" ng-model="productData.qty" ng-init="productData.qty=selectedProduct.item_qty" autocomplete="off" />
     
         <br><br>
         <div class="message">{{message}}</div> 
@@ -34,5 +41,6 @@
         <br/>
         <h5 id="list">Total Price: <strong>{{totalPrice}}</strong></h5>
         <br/>
-      </div>   
-    </form>
+
+    </div>   
+</form>
