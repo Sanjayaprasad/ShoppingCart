@@ -1,4 +1,4 @@
-// Clone the project
+// Clone the project using the below url
 
 git clone https://github.com/Sanjayaprasad/ShoppingCart.git
 
