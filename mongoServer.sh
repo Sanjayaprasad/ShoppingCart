@@ -7,6 +7,6 @@ cd db
 mkdir data
 cd ..
 
-mongod -dbpath /Users/solutionsiq/Desktop/ShoppingCart/db/data
+mongod -dbpath /c/Sanjay/technicalagility/ShoppingCart/db/data
 
 

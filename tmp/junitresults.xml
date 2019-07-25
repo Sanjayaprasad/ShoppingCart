@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="0" tests="10" time="32.579">
+ <testsuite name="ShoppingCart home page" timestamp="2019-07-25T19:55:24" hostname="localhost" time="32.579" errors="0" tests="10" skipped="0" disabled="0" failures="0">
+  <testcase classname="ShoppingCart home page" name="Should display the home page" time="2.461" />
+  <testcase classname="ShoppingCart home page" name="should get the item price" time="2.593" />
+  <testcase classname="ShoppingCart home page" name="should display a error message when quantity is 0" time="3.862" />
+  <testcase classname="ShoppingCart home page" name="should calculate total price when quantity is 1" time="3.885" />
+  <testcase classname="ShoppingCart home page" name="should calculate total price when quantity is 2" time="3.344" />
+  <testcase classname="ShoppingCart home page" name="should calculate total price when quantity is 5" time="3.035" />
+  <testcase classname="ShoppingCart home page" name="Should display a error message if quantity is not available" time="3.006" />
+  <testcase classname="ShoppingCart home page" name="should clear all the fields if CLEAR button is clicked" time="4.614" />
+  <testcase classname="ShoppingCart home page" name="should display available sizes for the particular brand" time="2.854" />
+  <testcase classname="ShoppingCart home page" name="buy now button should be disabled if totalprice is equal to &quot; &quot;" time="2.919" />
+ </testsuite>
+</testsuites>
