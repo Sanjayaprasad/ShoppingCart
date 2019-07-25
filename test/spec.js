@@ -115,7 +115,7 @@ describe('ShoppingCart home page', function(){
 		browser.sleep(1000);
 	});
 
-	it('should navigate to "UserDetails" only when the totalprice is dispalyed', function(){
+/*	it('should navigate to "UserDetails" only when the totalprice is dispalyed', function(){
 		var itemqty = 2;
 		element(by.model('item_ItemName')).sendKeys(itemname);
 		element(by.id('singleitem')).click();
@@ -137,7 +137,7 @@ describe('ShoppingCart home page', function(){
 		element(by.id('btnsubmit')).click();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#!/shippingConformation')
 		browser.sleep(1000);
-	});
+	});*/
 
 	it('buy now button should be disabled if totalprice is equal to " "', function(){
 		var itemqty = 2;
